@@ -76,7 +76,7 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 100, 740, 62);
 
-        INICIAR.setText("Iniciar");
+        INICIAR.setText("INICIAR");
         INICIAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 INICIARActionPerformed(evt);
