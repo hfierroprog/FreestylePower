@@ -17,7 +17,7 @@ import javax.swing.Timer;
  *
  * @author bebee
  */
-public class Ventana extends javax.swing.JFrame {
+public final class Ventana extends javax.swing.JFrame {
     Conector con = new Conector();
     private String palabra;
     private Timer t;
@@ -57,6 +57,7 @@ public class Ventana extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/src/res/icono.ico")).getImage());
         setMaximumSize(new java.awt.Dimension(747, 519));
         setMinimumSize(new java.awt.Dimension(747, 519));
         setResizable(false);
@@ -179,5 +180,9 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    void setIconImage(String srcresfondopng) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
