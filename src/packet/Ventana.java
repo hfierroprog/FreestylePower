@@ -21,22 +21,14 @@ public class Ventana extends javax.swing.JFrame {
     Conector con = new Conector();
     private String palabra;
     private Timer t;
-    private int contador =0;
-    private int tope;
+    private int contador;
+    private int tope = 0;
     private int intervalo;
     
     /** Creates new form Ventana */
     public Ventana() {
         initComponents();
         con.conectar();
-        
-        /*ImageIcon imagen = new ImageIcon("src/res/redbull.jpg");
-        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(img_redbull1.getWidth(), img_redbull1.getHeight(), Image.SCALE_DEFAULT));
-        img_redbull1.setIcon(icono);
-        
-        ImageIcon imagen2 = new ImageIcon("src/res/redbull.jpg");
-        Icon icono2 = new ImageIcon(imagen2.getImage().getScaledInstance(img_redbull2.getWidth(), img_redbull2.getHeight(), Image.SCALE_DEFAULT));
-        img_redbull2.setIcon(icono2);*/
         
         ImageIcon fondoxd = new ImageIcon("src/res/fondo.png");
         Icon icono3 = new ImageIcon(fondoxd.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
@@ -131,12 +123,12 @@ public class Ventana extends javax.swing.JFrame {
 
     private void INICIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INICIARActionPerformed
         INICIAR.setEnabled(false);
-        int tope = Integer.parseInt(SEG_TXT.getText());
+        contador = Integer.parseInt(SEG_TXT.getText());
         intervalo = Integer.parseInt(INTERVALO_TXT.getText());
         palabra();
         t = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                contador++;
+                contador--;
                 CONTADOR_TXT.setText(""+contador);
                 if (contador % intervalo == 0){
                     palabra();
