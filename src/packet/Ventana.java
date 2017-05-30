@@ -9,7 +9,6 @@ package packet;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.ImageObserver;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
@@ -22,6 +21,9 @@ public class Ventana extends javax.swing.JFrame {
     Conector con = new Conector();
     private String palabra;
     private Timer t;
+    private int contador =0;
+    private int tope;
+    private int intervalo;
     
     /** Creates new form Ventana */
     public Ventana() {
@@ -55,6 +57,11 @@ public class Ventana extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         INICIAR = new javax.swing.JButton();
         PARAR = new javax.swing.JButton();
+        CONTADOR_TXT = new javax.swing.JLabel();
+        SEG_TXT = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        INTERVALO_TXT = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +102,26 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().add(PARAR);
         PARAR.setBounds(430, 410, 200, 54);
 
+        CONTADOR_TXT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(CONTADOR_TXT);
+        CONTADOR_TXT.setBounds(360, 250, 80, 40);
+
+        SEG_TXT.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        getContentPane().add(SEG_TXT);
+        SEG_TXT.setBounds(80, 400, 80, 30);
+
+        jLabel2.setText("SEGUNDOS:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 410, 70, 14);
+
+        jLabel3.setText("INTERVALO:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 450, 70, 14);
+
+        INTERVALO_TXT.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        getContentPane().add(INTERVALO_TXT);
+        INTERVALO_TXT.setBounds(80, 440, 80, 30);
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/fondo.png"))); // NOI18N
         getContentPane().add(fondo);
         fondo.setBounds(0, 0, 740, 510);
@@ -104,11 +131,21 @@ public class Ventana extends javax.swing.JFrame {
 
     private void INICIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INICIARActionPerformed
         INICIAR.setEnabled(false);
+        int tope = Integer.parseInt(SEG_TXT.getText());
+        intervalo = Integer.parseInt(INTERVALO_TXT.getText());
         palabra();
-        t = new Timer(10000, new ActionListener() {
-            @Override
+        t = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                palabra();
+                contador++;
+                CONTADOR_TXT.setText(""+contador);
+                if (contador % intervalo == 0){
+                    palabra();
+                }
+                
+                if(contador == tope){
+                    parar();
+                }
+                
             }
         });
         t.start();
@@ -124,20 +161,31 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void PARARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARARActionPerformed
-        t.stop();
-        INICIAR.setEnabled(true);
+        parar();
     }//GEN-LAST:event_PARARActionPerformed
 
    private void palabra(){
         palabra = con.getAleatorio();
         jLabel1.setText(palabra.toUpperCase());
    }
+   
+   private void parar(){
+        t.stop();
+        INICIAR.setEnabled(true);
+        contador = 0;
+   }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CONTADOR_TXT;
     private javax.swing.JButton INICIAR;
+    private javax.swing.JTextField INTERVALO_TXT;
     private javax.swing.JButton PARAR;
+    private javax.swing.JTextField SEG_TXT;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
 }
