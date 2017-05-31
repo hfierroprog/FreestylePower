@@ -1,8 +1,8 @@
 # FreestylePower
-Freestyle Power 0.6
+Freestyle Power 1.0
 
 INSTRUCCIONES:
 
 copiar diccionario.db en disco local c
 
-ejecutar desde dist Freestyle_Power_0.6.jar
+ejecutar desde dist Freestyle_Power_1.0.jar
