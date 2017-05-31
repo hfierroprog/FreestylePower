@@ -70,7 +70,7 @@ public final class Ventana extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 100, 740, 62);
@@ -94,9 +94,10 @@ public final class Ventana extends javax.swing.JFrame {
         getContentPane().add(PARAR);
         PARAR.setBounds(430, 410, 200, 54);
 
-        CONTADOR_TXT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        CONTADOR_TXT.setFont(new java.awt.Font("Segoe Print", 3, 24)); // NOI18N
+        CONTADOR_TXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(CONTADOR_TXT);
-        CONTADOR_TXT.setBounds(360, 250, 80, 40);
+        CONTADOR_TXT.setBounds(0, 250, 740, 40);
 
         SEG_TXT.setText("120");
         SEG_TXT.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
