@@ -57,7 +57,6 @@ public final class Ventana extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(new ImageIcon(getClass().getResource("/src/res/icono.ico")).getImage());
         setMaximumSize(new java.awt.Dimension(747, 519));
         setMinimumSize(new java.awt.Dimension(747, 519));
         setResizable(false);
@@ -99,6 +98,7 @@ public final class Ventana extends javax.swing.JFrame {
         getContentPane().add(CONTADOR_TXT);
         CONTADOR_TXT.setBounds(360, 250, 80, 40);
 
+        SEG_TXT.setText("120");
         SEG_TXT.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         getContentPane().add(SEG_TXT);
         SEG_TXT.setBounds(80, 400, 80, 30);
@@ -111,6 +111,7 @@ public final class Ventana extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(10, 450, 70, 14);
 
+        INTERVALO_TXT.setText("10");
         INTERVALO_TXT.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         getContentPane().add(INTERVALO_TXT);
         INTERVALO_TXT.setBounds(80, 440, 80, 30);

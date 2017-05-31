@@ -40,7 +40,7 @@ public class Conector{
         String palabra = "";
         Random rnd = new Random();
         
-        aleatorio = (int)(rnd.nextDouble() * 68412 + 1);
+        aleatorio = (int)(rnd.nextDouble() * 1036 + 1);
         
         try {
             Statement st = conexion.createStatement();
