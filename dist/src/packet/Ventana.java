@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.Timer;
 
 /**
@@ -28,6 +29,7 @@ public final class Ventana extends javax.swing.JFrame {
     /** Creates new form Ventana */
     public Ventana() {
         initComponents();
+        setIconImage(new ImageIcon("src/res/icono.png").getImage());
         con.conectar();
         
         ImageIcon fondoxd = new ImageIcon("src/res/fondo.png");
@@ -153,6 +155,7 @@ public final class Ventana extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         con.cerrar();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_formWindowClosing
 
     private void PARARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PARARActionPerformed
